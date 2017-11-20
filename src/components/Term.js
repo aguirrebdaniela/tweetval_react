@@ -50,6 +50,12 @@ class Term extends Component {
    	this.searchTermsAndResult(this.state.word)
   }
 
+  componentDidUpdate() {
+		let chart = this.refs.chart.getChart();
+		chart.reflow = () => {};
+	}
+
+
   searchTermsAndResult(text) {  
     this.state.termAndResults.terms = new Array();
     axios.get(`${this.state.url}/terms/word/`+text)
@@ -66,18 +72,24 @@ class Term extends Component {
         });
         $.when.apply($, deferredArray).then( function () { 
     
-     
+
           this.setState(function () { 
             return {
 
 
               highChartsConfig :  {
                 chart: {
-                    type: 'column'
+                    type: 'column',
+                    
                 },
                 title: {
                     text: 'Tweets from ' + this.state.word
                 },
+
+                colors: ['#387038', '#f9f0eb', '#bd888f'],
+
+
+
                 xAxis: {
                     categories: this.state.termAndResults.terms.map(a => a.id  + " - " + this.convertDateformat(a.search_date)  ),
                     crosshair: true
@@ -96,7 +108,12 @@ class Term extends Component {
                     column: {
                         pointPadding: 0.2,
                         borderWidth: 0
-                    }
+                    },
+                    series: {
+            					animation: {
+                			duration: 2000
+            }
+        }
                 },
                 series: [{
                     name: 'Positive',

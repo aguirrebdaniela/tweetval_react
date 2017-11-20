@@ -1,3 +1,4 @@
+
 body, html{
   background-color: #FAFAFA;
 }
@@ -364,22 +365,6 @@ border-radius: 7px;
   color: white;
 }
 
-.add-button{
-  height:45px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #323232;
-  float: right;
-  margin-top: 20px;
-  margin-right: 30px;
-  padding: 10px;
-
-}
-
-.add-button:hover{
-  cursor: pointer;
-  font-weight: 700;
-}
 
 .results{
   margin: 25px 20px 0px 20px;
@@ -485,8 +470,5 @@ padding: 10px;
 .tile-date{
 
 }
-
-
-
 
 

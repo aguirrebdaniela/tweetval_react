@@ -15,6 +15,7 @@ import $ from 'jquery';
 //       }
 //     }
 
+
 function TwitterList(props) {
 
 
@@ -25,7 +26,6 @@ function TwitterList(props) {
       <div className="results-text">
       Results for '{props.term}'
       </div>
-
 
       <div className="results-index">
         <p className="indexes" id="negative"> negative tweet </p> <p className="indexes" id="neutral"> neutral tweet </p> <p className="indexes" id="positive"> positive tweet </p> 

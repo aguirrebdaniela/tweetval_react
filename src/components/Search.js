@@ -7,6 +7,8 @@ import $ from 'jquery';
 import { RingLoader } from 'react-spinners';
 import loading from './images/loading.gif';
 import { CSSTransition, transit } from "react-css-transition";
+  import AwesomeButton from 'react-awesome-button';
+  import 'react-awesome-button/dist/styles.css';
 
 class Search extends Component {
   constructor(props){
@@ -21,12 +23,11 @@ class Search extends Component {
       };
       this.handleChange = this.handleChange.bind(this);
       this.searchTweets= this.searchTweets.bind(this);
-      this.addTerm=this.addTerm.bind(this)
+      // this.addTerm=this.addTerm.bind(this)
       this.searchTweet=this.searchTweet.bind(this)
       this.backToSearch=this.backToSearch.bind(this)
   }
 
-  
   searchTweet(e){
     e.preventDefault(); // prevent default form action
     this.setState({  
@@ -69,8 +70,42 @@ class Search extends Component {
       })
   }
 
-  addTerm(event) {
-    event.preventDefault();
+  // addTerm(event) {
+  //   event.preventDefault();
+  //   var term = this.state.inputValue;
+  //   var userId= this.props.user.id
+  //   var date= new Date()
+  //   axios
+  //     .post("http://localhost:8080/terms/", 
+  //       { word:term, search_date:date, user_id: userId })
+  //     .then(response => { 
+  //       var id_terms = response.data.term.id;
+  //       console.log(id_terms)
+  //       $(this.state.results).each(function() {
+  //          var result  =  this;
+  //          axios
+  //         .post("http://localhost:8080/terms/results", 
+  //           {tweet_text: result.text, 
+  //             score: result.score, 
+  //             magnitude: result.magnitude, 
+  //             evaluation: result.level, 
+  //             id_terms: id_terms})
+  //         .then(response => { 
+                          
+              
+  //         })
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log("Error adding search term: ", err);
+  //     });
+  // }
+
+  render(){
+
+    const Actions = {progress: ( element, next) => {
+    setTimeout(() => {
+        
     var term = this.state.inputValue;
     var userId= this.props.user.id
     var date= new Date()
@@ -80,6 +115,7 @@ class Search extends Component {
       .then(response => { 
         var id_terms = response.data.term.id;
         console.log(id_terms)
+        next()
         $(this.state.results).each(function() {
            var result  =  this;
            axios
@@ -89,28 +125,20 @@ class Search extends Component {
               magnitude: result.magnitude, 
               evaluation: result.level, 
               id_terms: id_terms})
-          .then(response => { 
-                          
-              
-          })
+
         })
       })
-      .catch(err => {
-        console.log("Error adding search term: ", err);
-      });
+    // next();
+    }, 500);
   }
+}
 
-
-
-
-
-
-  render(){
     var divStyle = {
     marginTop: 200,
     height: 200, 
     width: 250,
-    marginLeft: 200
+    marginLeft: 200,
+    textAlign: 'center'
     };
     const { from } = this.props.location.state || '/'
     let content;
@@ -142,7 +170,35 @@ class Search extends Component {
         }
          else if(mode === "results") {
          
-            content = <TwitterList repos={this.state.results} term={this.state.inputValue}/>
+            content = 
+            <div>
+            <AwesomeButton 
+        progress
+          size="medium"
+          action={Actions.progress}
+          loadingLabel="Adding term ..."
+          successLabel="Saved!"
+          errorLabel="Ops!"
+          states={{
+            default: {
+              backgroundStyle: {
+                backgroundColor: 'pink',
+                minHeight: 60,
+                alignItems: 'right',
+                justifyContent: 'center',
+                borderRadius: 30,
+                float: 'right'
+              }}
+            }}
+          >
+         ADD TO BOARD 
+        </AwesomeButton>
+
+            <TwitterList
+
+            repos={this.state.results} term={this.state.inputValue}/>
+            
+            </div>
           }
           
   //    }
@@ -163,9 +219,6 @@ class Search extends Component {
           </div>
         </div>
 
-        <div>
-         <p className="add-button" onClick={this.addTerm.bind(this)}> ADD TO BOARD </p>
-        </div>
 
         <div>
           {content}

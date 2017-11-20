@@ -10,9 +10,17 @@ class Board extends Component {
     this.state = { 
       savedTerms: []
       }
+      this.handler = this.handler.bind(this)
     }
 
+    handler(e) {
+    // e.preventDefault()
+    this.componentDidMount()
+
+  }
+
     componentDidMount() {
+      
       axios
         .get('http://localhost:8080/terms/username/' + this.props.user.id)
         .then(function (response) {  
@@ -50,10 +58,10 @@ class Board extends Component {
                 {this.state.savedTerms.map(function (item, index) {  
                     return (
                         
-                        <TermTile key={item.id} result={item}/> 
+                        <TermTile handler = {this.handler} key={item.id} result={item}/> 
 
                       )
-                  })}
+                  }, this)}
               </div>
           }
           </div>
