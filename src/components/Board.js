@@ -16,8 +16,7 @@ class Board extends Component {
     handler(e) {
     // e.preventDefault()
     this.componentDidMount()
-
-  }
+    }
 
     componentDidMount() {
       

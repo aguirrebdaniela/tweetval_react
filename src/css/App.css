@@ -375,8 +375,6 @@ border-radius: 7px;
 
 }
 
-
-
 .alert {
   padding: 15px;
   margin-bottom: 20px;
@@ -407,15 +405,6 @@ border-radius: 7px;
 }
 
 
-
-
-
-
-
-
-
-
-
 /*-----------BOARD PAGE-----------------*/
 
 .board-page{
@@ -427,6 +416,8 @@ border-radius: 7px;
 
 .board-title{
   font-size: 20px;
+  font-weight: 700;
+  margin-top: 35px;
 }
 
 .board-flex-container{
@@ -434,19 +425,15 @@ border-radius: 7px;
    margin-top: 20px;
    width: 100vw;
     justify-content: center;
-
 }
 
 #board-flex-container-id{
- display: flex;
-  margin-top: 20px;
-  flex-wrap: wrap;  
- justify-content: center;
- width: 800px;
-
-
+display: flex;
+margin-top: 20px;
+flex-wrap: wrap;  
+justify-content: center;
+width: 800px;
 }
-
 
 .tile{
   height: 210px;
@@ -463,12 +450,24 @@ border-radius: 7px;
 font-size: 40px;
 font-weight: 500;
 align-content: center;
-margin-top: 45px;
+margin-top: 5px;
 padding: 10px;
+}
+
+.add-button{
+  float:right;
+  margin: 20px;
 }
 
 .tile-date{
 
 }
+
+.aws-btn--progress{
+  background-color: red;
+}
+
+
+
 
 

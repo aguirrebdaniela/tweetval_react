@@ -172,28 +172,20 @@ class Search extends Component {
          
             content = 
             <div>
+            <div className="add-button">
             <AwesomeButton 
         progress
-          size="medium"
+          size="large"
           action={Actions.progress}
           loadingLabel="Adding term ..."
           successLabel="Saved!"
           errorLabel="Ops!"
-          states={{
-            default: {
-              backgroundStyle: {
-                backgroundColor: 'pink',
-                minHeight: 60,
-                alignItems: 'right',
-                justifyContent: 'center',
-                borderRadius: 30,
-                float: 'right'
-              }}
-            }}
+          button-color= '#385f71'
+
           >
          ADD TO BOARD 
         </AwesomeButton>
-
+          </div>
             <TwitterList
 
             repos={this.state.results} term={this.state.inputValue}/>
