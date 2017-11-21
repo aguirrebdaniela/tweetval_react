@@ -83,7 +83,7 @@ class Term extends Component {
                     
                 },
                 title: {
-                    text: 'Tweets from ' + this.state.word
+                    text: 'Results for "' + this.state.word +'"'
                 },
 
                 colors: ['#387038', '#f9f0eb', '#bd888f'],
@@ -143,19 +143,19 @@ render(){
 	return(
 
       <div className="search-page">
-        <div className="NavBar">
+     <div className="NavBar">
           <div className="nav-left">
              <div className="navbar-logo"> TWEETVAL </div>
           </div>
 
           <div className="nav-right">
-              <Link to="/tweetval/search" onClick={this.backToSearch.bind(this)}id="search" className="navbar-item-right"> Search </Link> 
-              <Link to="/tweetval/board"  className="navbar-item-right"> My Board </Link>
+              <Link to="/tweetval/search" className="navbar-item-right"> Search </Link> 
+              <Link to="/tweetval/board" id="board" className="navbar-item-right"> My Board </Link>
               <p onClick={this.props.logout} className="navbar-item-right" >Logout</p>
           </div>
         </div>
 
-		<div>
+		<div className="chart">
 			 <ReactHighcharts config={this.state.highChartsConfig} ref="chart"></ReactHighcharts>
 		</div>
 

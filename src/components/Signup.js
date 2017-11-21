@@ -54,10 +54,9 @@ class SignUp extends Component {
                     <span className='rotating-text'> company</span>
                 </TextLoop> perceived?
             </p>
-            <p className="landing-subtitle2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br></br>
-            sed do eiusmod tempor incididunt ut labore et dolore <br></br>
-            magna aliqua. Ut enim ad minim veniam, quis nostrud <br></br>
+              <p className="landing-subtitle2">
+            Through our app you can read what, is being<br></br>
+             said about any text in real time. We use <br></br>  sentiment analysis to inspect the given text <br></br> identifying the prevailing emotional opinion <br></br> within the text,to determine a writer's attitude. 
             </p>
           </div>
 

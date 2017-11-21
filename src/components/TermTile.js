@@ -4,6 +4,8 @@ import { Route, Redirect, Switch, Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Term from './Term.js';
 import $ from 'jquery'; 
+import {del} from './images/delete.png';
+import {graph} from './images/graph.png';
 const ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code.
 
 
@@ -49,10 +51,10 @@ class Termtile extends Component {
     console.log(stringDate)
     var date = new Date(stringDate)
     var monthNames = [
-      "January", "February", "March",
+      "Jan", "Feb", "Mar",
       "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
+      "Aug", "Sep", "Oct",
+      "Nov", "Dec"
     ];
     var day = date.getDate();
     var monthIndex = date.getMonth();
@@ -64,17 +66,18 @@ class Termtile extends Component {
 
   render() {
   	return(
-  		<div className="tile">
-  			<div > 
-  			<p className='delete' value="Delete" onClick={this.deleteTerm} data-id={this.state.result.id} > delete </p>
-  			</div>
-  			<div className="tile-title">
+  		<div className="tile" data-shadow='dang!'>
+  		
+  			<div className="delete" value="Delete" onClick={this.deleteTerm} data-id={this.state.result.id}> </div>
+
+  		<div className="tile-title">
   			{this.state.result.word} 
   			</div> 
   			<div className="tile-date">
+  			Search Date: <br></br>
   			{this.convertDateformat(this.state.result.search_date)}
   			</div>
-  			<Link to={'./term/?word='+this.state.result.word }> Click </Link>
+  			<Link to={'./term/?word='+this.state.result.word} className="graph-icon">  </Link>
 
   			 
   		</div>

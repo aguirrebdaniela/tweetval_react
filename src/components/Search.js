@@ -7,8 +7,9 @@ import $ from 'jquery';
 import { RingLoader } from 'react-spinners';
 import loading from './images/loading.gif';
 import { CSSTransition, transit } from "react-css-transition";
-  import AwesomeButton from 'react-awesome-button';
-  import 'react-awesome-button/dist/styles.css';
+import AwesomeButton from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
+
 
 class Search extends Component {
   constructor(props){
@@ -137,7 +138,6 @@ class Search extends Component {
     marginTop: 200,
     height: 200, 
     width: 250,
-    marginLeft: 200,
     textAlign: 'center'
     };
     const { from } = this.props.location.state || '/'
